@@ -1,6 +1,7 @@
 // ES6 Modules
-import { resetControls } from "./controls.js";
-import "./timer.js";
+// Default import
+import resetControls from "./controls.js";
+import { Timer } from "./timer.js";
 
 // DOM - Document Object Model
 const buttonPlay = document.querySelector(".play");
@@ -15,13 +16,20 @@ const minutesDisplay = document.querySelector(".minutes");
 let minutes = Number(minutesDisplay.textContent);
 let timerTimeOut;
 
+const timer = Timer({
+  minutesDisplay,
+  secondsDisplay,
+  timerTimeOut,
+  resetControls,
+});
+
 buttonPlay.addEventListener("click", function () {
   buttonPlay.classList.add("hide");
   buttonPause.classList.remove("hide");
   buttonSet.classList.add("hide");
   buttonStop.classList.remove("hide");
 
-  countDown();
+  timer.countDown();
 });
 
 buttonPause.addEventListener("click", function () {
@@ -33,7 +41,7 @@ buttonPause.addEventListener("click", function () {
 
 buttonStop.addEventListener("click", function () {
   resetControls();
-  resetTimer();
+  timer.resetTimer();
 });
 
 buttonSoundOff.addEventListener("click", function () {
@@ -50,7 +58,7 @@ buttonSet.addEventListener("click", function () {
   let newMinutes = prompt("Quantos minutos?");
 
   if (!newMinutes) {
-    resetTimer();
+    timer.resetTimer();
     return;
   }
 
