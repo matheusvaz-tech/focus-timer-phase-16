@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background-color: #121214;
+
+  --base-color: 194;
+  --background-primary-light: hsla(var(--base-color), 100%, 63%, 0.13);
+  --primary-color: hsl(var(--base-color), 100%, 63%);
+
+  --text-color: #ffffff;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+
+  min-height: 100vh;
+
+  font-family: "Roboto", sans-serif;
+
+  display: grid;
+}
+
+main {
+  justify-self: center;
+  align-self: end;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
+
+.play svg path,
+.pause svg path,
+.sound-on svg path {
+  fill: var(--primary-color);
+}
+
+button svg {
+  width: clamp(2rem, 1.25rem + 12vh, 4rem);
+}
+
+#timer {
+  font-size: clamp(2.5rem, 2.5rem + 10vh, 5.5rem);
+
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+#controls {
+  background: var(--background-primary-light);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+
+  border-radius: 14rem;
+
+  width: clamp(6rem, 6rem + 30vw, 14.25rem);
+  height: clamp(5rem, 3rem + 10vw, 7rem);
+}
+
+footer {
+  justify-self: end;
+  align-self: end;
+  padding: 0 2.5rem 2rem 0;
+}
