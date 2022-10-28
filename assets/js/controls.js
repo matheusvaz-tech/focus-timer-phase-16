@@ -1,6 +1,9 @@
-import Timer from "./timer";
-
-export default function Controls() {
+export default function Controls({
+  buttonPlay,
+  buttonPause,
+  buttonSet,
+  buttonStop,
+}) {
   function play() {
     buttonPlay.classList.add("hide");
     buttonPause.classList.remove("hide");
@@ -21,14 +24,13 @@ export default function Controls() {
   }
 
   function getMinutes() {
-    let newMinutes = controls.getMinutes();
+    let newMinutes = prompt("Quantos minutos?");
 
     if (!newMinutes) {
       return false;
     }
 
-    minutes = newMinutes;
-    Timer.updateDisplay(0, minutes);
+    return newMinutes;
   }
 
   return {
